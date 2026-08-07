@@ -18,7 +18,7 @@
     <?php 
      echo rand(1, 100);
     ?>
-
+  <p><a href="javascript:history.go(-1)">Voltar para página anterior</a></p>
   </main>
 </body>
 </html>
