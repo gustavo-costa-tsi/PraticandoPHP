@@ -19,10 +19,10 @@
 if ($resposta !== false) {
     // Transforma o JSON em array associativo
     $dados = json_decode($resposta, true);
+    $info = $dados['value'][0]['cotacaoCompra'];
+    $valor = number_format($info, 2, '.', '');  
     
-    $valor = $dados['value'][0]['cotacaoCompra'];
-    
-    echo "Valor da cotação atual: R$ $valor"; 
+    echo "US$1,00 dólar equivale a : R$ $valor reais"; 
     
     } 
     
@@ -31,9 +31,11 @@ if ($resposta !== false) {
     }
 
     $dinheiro = $_GET["dinheiro"] ?? "Sem dinheiro";
-    $grana = $valor * $dinheiro;
+    $grana = $dinheiro / $valor;
+
+    $convertido = number_format($grana, 2, '.' , '');
     
-    echo "<p>Seu dinheiro em dólares $ $grana</p>";
+    echo "<p>Você tem R$ $dinheiro, o que equivale a : US$ $convertido</p>";
     
     ?>
     
