@@ -13,10 +13,11 @@
     <main>
     <?php 
         $dinheiro = $_GET["dinheiro"] ?? "Sem dinheiro";
-        $grana = 5.21 * $dinheiro;
+        $grana = $dinheiro / 5.21;
+        $conversor = number_format($grana, 2, '.', '');
 
         echo "<p>Você tem R$ $dinheiro<p>";
-        echo "<p>Isso equivale a $ $grana <p>";
+        echo "<p>Isso equivale a $ $conversor <p>";
     ?>
         <p><a href="javascript:history.go(-1)">Voltar para página anterior</a></p>
     </main>
